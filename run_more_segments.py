@@ -18,7 +18,7 @@ from pysnic.algorithms.polygonize import polygonize
 from pysnic.algorithms.ramerDouglasPeucker import RamerDouglasPeucker
 
 
-naip_fn="C:/Users/zhihui.tian/Downloads/3/3_planet.tif"
+Input_fn="C:/Users/zhihui.tian/Downloads/3/3_planet.tif"
 
 driverTiff= gdal.GetDriverByName('GTiff')
 naip_ds=gdal.Open(naip_fn)
