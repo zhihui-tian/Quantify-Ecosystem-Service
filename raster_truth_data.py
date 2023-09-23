@@ -1,10 +1,9 @@
 """
 For:
-Author: zhihu
-Date: 2023/01/16
+Author: zhihui
+Date: 2023/09/22
 """
 from osgeo import gdal,ogr
-#import ogr
 
 
 naip_fn="C:/Users/zhihui.tian/Downloads/3/3.tif"
