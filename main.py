@@ -17,7 +17,7 @@ from pysnic.algorithms.polygonize import polygonize
 from pysnic.algorithms.ramerDouglasPeucker import RamerDouglasPeucker
 
 
-Input_fn="/blue/joel.harley/zhihui.tian/Quantify-Ecosystem-Service-main/3_planet.tif"
+Input_fn="./planet.tif"
 
 driverTiff= gdal.GetDriverByName('GTiff')
 naip_ds=gdal.Open(Input_fn)
@@ -61,7 +61,7 @@ for id in segment_ids:
 
 print('created',len(objects),'objects with',len(objects[0]),'variables in',time.time()-obj_start,'seconds')
 
-segments_fn='/blue/joel.harley/zhihui.tian/Quantify-Ecosystem-Service-main/3_planet_segment.tif'
+segments_fn='./planet_segment.tif'
 segments_ds=driverTiff.Create(segments_fn, naip_ds.RasterXSize,naip_ds.RasterYSize,
                               1,gdal.GDT_Float32)
 segments_ds.SetGeoTransform(naip_ds.GetGeoTransform())
@@ -71,7 +71,7 @@ segments_ds=None
 
 
 
-train_fn='/blue/joel.harley/zhihui.tian/Quantify-Ecosystem-Service-main/train.shp'
+train_fn='./train.shp'
 train_ds=ogr.Open(train_fn)
 lyr=train_ds.GetLayer()
 driver=gdal.GetDriverByName('MEM')
@@ -156,7 +156,7 @@ clf = np.multiply(clf, mask)
 clf[clf < 0] = -9999.0
 
 
-clf_ds = driverTiff.Create('/blue/joel.harley/zhihui.tian/Quantify-Ecosystem-Service-main/3_planet_classified.tif', naip_ds.RasterXSize, naip_ds.RasterYSize,
+clf_ds = driverTiff.Create('./planet_classified.tif', naip_ds.RasterXSize, naip_ds.RasterYSize,
                           1, gdal.GDT_Float32)
 clf_ds.SetGeoTransform(naip_ds.GetGeoTransform())
 clf_ds.SetProjection(naip_ds.GetProjectionRef())
